@@ -1,0 +1,156 @@
+<!-- HTML Structure -->
+<div class="wrapper">
+  <header class="header">
+    <div class="header-content">
+      <h1>Valentina Filizola</h1>
+      <p>Design Engineer | Product Design | Content Design</p>
+      <a href="mailto:vfiliz@uw.edu" class="contact-button">Contact Me</a>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section class="section about">
+    <div class="container">
+      <h2>Why I Want to Work at OpenSesame</h2>
+      <p>At OpenSesame, I'm excited to contribute to transforming the world of eLearning. With my background in Human-Centered Design and experience working in product design and user experience, I am eager to help build accessible and impactful SaaS solutions for global learning.</p>
+    </div>
+  </section>
+
+  <!-- Internship Interest -->
+  <section class="section internship">
+    <div class="container">
+      <h2>Why This Internship?</h2>
+      <p>This internship allows me to apply my skills in design thinking, user research, and agile product development. I’m passionate about contributing to an organization that is revolutionizing learning, and this role provides an opportunity to grow within a collaborative and innovative environment.</p>
+    </div>
+  </section>
+
+  <!-- Portfolio Tabs -->
+  <section class="section portfolio">
+    <div class="container">
+      <h2>Portfolio</h2>
+      <div class="tabs">
+        <button class="tablinks" onclick="openCaseStudy(event, 'cookd')">Cook’d: Student Recipe App</button>
+        <button class="tablinks" onclick="openCaseStudy(event, 'beargrass')">Beargrass: Indie Music Festival</button>
+      </div>
+
+      <div id="cookd" class="tabcontent">
+        <h3>Cook’d: Student Recipe App</h3>
+        <p>This was a project where I designed an app to help students find recipes and track their meals. I conducted user research and prototyping to optimize the design.</p>
+        <a href="https://valentinafilizola.webflow.io/cookd" target="_blank">View Case Study</a>
+      </div>
+
+      <div id="beargrass" class="tabcontent">
+        <h3>Beargrass: Indie Music Festival</h3>
+        <p>For Beargrass, I designed a UI system and cohesive branding for an indie music festival, which included everything from the website to event signage.</p>
+        <a href="https://valentinafilizola.webflow.io/beargrass" target="_blank">View Case Study</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Custom CSS -->
+<style>
+  .wrapper {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+  }
+
+  .header {
+    background-color: #f4f4f4;
+    padding: 50px 0;
+    text-align: center;
+  }
+
+  .header h1 {
+    font-size: 40px;
+    margin: 0;
+  }
+
+  .header p {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+
+  .contact-button {
+    font-size: 16px;
+    padding: 10px 20px;
+    background-color: #0078d4;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+
+  .section {
+    padding: 50px 20px;
+  }
+
+  .section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+
+  .tablinks {
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    padding: 14px 20px;
+    cursor: pointer;
+    font-size: 18px;
+    margin: 0 10px;
+    border-radius: 5px;
+  }
+
+  .tablinks:hover {
+    background-color: #ddd;
+  }
+
+  .tabcontent {
+    display: none;
+    text-align: center;
+  }
+
+  .tabcontent h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .tabcontent p {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .tabcontent a {
+    text-decoration: none;
+    color: #0078d4;
+    font-weight: bold;
+  }
+</style>
+
+<!-- Custom JavaScript -->
+<script>
+  function openCaseStudy(evt, caseName) {
+    var i, tabcontent, tablinks;
+
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    document.getElementById(caseName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+</script>
