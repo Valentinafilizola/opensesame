@@ -23,6 +23,13 @@
       <p>This internship allows me to apply my skills in design thinking, user research, and agile product development. I’m passionate about contributing to an organization that is revolutionizing learning, and this role provides an opportunity to grow within a collaborative and innovative environment.</p>
     </div>
   </section>
+  
+  <section class="section experience-value">
+  <div class="container">
+    <h2>How Does Your Experience Add Value to This Role?</h2>
+    <p>My experience bridges design thinking and real-world impact. I've led user research for grassroots organizations, redesigned platforms for student radio and public institutions, and developed apps that focus on accessibility, affordability, and cultural nuance. I'm not just passionate about solving problems—I take initiative, build systems, and create designs that people trust. I bring a curious mindset, iterative process, and deep empathy for users—all critical in delivering meaningful eLearning products.</p>
+  </div>
+</section>
 
   <!-- Portfolio Tabs -->
   <section class="section portfolio">
@@ -49,78 +56,107 @@
 </div>
 
 <!-- Custom CSS -->
+<!-- Enhanced CSS -->
 <style>
-  .wrapper {
-    font-family: Arial, Helvetica, sans-serif;
+  body, .wrapper {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
     background-color: #fff;
     margin: 0;
     padding: 0;
+    line-height: 1.6;
   }
 
   .header {
-    background-color: #f4f4f4;
-    padding: 50px 0;
+    background: linear-gradient(to right, #0078d4, #005fa3);
+    color: #fff;
+    padding: 60px 20px;
     text-align: center;
+    animation: fadeIn 1s ease-in-out;
   }
 
   .header h1 {
-    font-size: 40px;
-    margin: 0;
+    font-size: 42px;
+    margin-bottom: 10px;
   }
 
   .header p {
-    font-size: 18px;
-    margin: 10px 0;
+    font-size: 20px;
+    opacity: 0.9;
   }
 
   .contact-button {
+    display: inline-block;
+    margin-top: 20px;
     font-size: 16px;
-    padding: 10px 20px;
+    padding: 12px 24px;
+    background-color: #fff;
+    color: #0078d4;
+    border: 2px solid #fff;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+  }
+
+  .contact-button:hover {
     background-color: #0078d4;
     color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
+    border: 2px solid #fff;
   }
 
   .section {
-    padding: 50px 20px;
+    padding: 60px 20px;
+    animation: fadeIn 1s ease-in-out;
   }
 
   .section h2 {
-    font-size: 28px;
+    font-size: 32px;
     margin-bottom: 20px;
     text-align: center;
+    color: #0078d4;
   }
 
   .tabs {
     display: flex;
     justify-content: center;
     margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 10px;
   }
 
   .tablinks {
-    background-color: #f1f1f1;
+    background-color: #f9f9f9;
     border: 1px solid #ccc;
-    padding: 14px 20px;
+    padding: 12px 18px;
     cursor: pointer;
-    font-size: 18px;
-    margin: 0 10px;
-    border-radius: 5px;
+    font-size: 16px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
   }
 
-  .tablinks:hover {
-    background-color: #ddd;
+  .tablinks:hover, .tablinks.active {
+    background-color: #0078d4;
+    color: #fff;
+    border-color: #0078d4;
+    font-weight: bold;
   }
 
   .tabcontent {
     display: none;
     text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #f4f4f4;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: opacity 0.5s ease-in-out;
   }
 
   .tabcontent h3 {
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 26px;
+    margin-bottom: 15px;
+    color: #222;
   }
 
   .tabcontent p {
@@ -131,26 +167,60 @@
   .tabcontent a {
     text-decoration: none;
     color: #0078d4;
-    font-weight: bold;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  .tabcontent a:hover {
+    color: #005fa3;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media screen and (max-width: 600px) {
+    .tablinks {
+      width: 100%;
+      text-align: center;
+    }
+
+    .tabcontent {
+      padding: 20px;
+    }
   }
 </style>
 
+
 <!-- Custom JavaScript -->
+<!-- Enhanced JavaScript -->
 <script>
   function openCaseStudy(evt, caseName) {
-    var i, tabcontent, tablinks;
+    const tabcontents = document.getElementsByClassName("tabcontent");
+    const tablinks = document.getElementsByClassName("tablinks");
 
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
+    // Hide all tab content
+    for (let i = 0; i < tabcontents.length; i++) {
+      tabcontents[i].style.display = "none";
+      tabcontents[i].style.opacity = 0;
     }
 
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    // Remove active class from all buttons
+    for (let i = 0; i < tablinks.length; i++) {
+      tablinks[i].classList.remove("active");
     }
 
-    document.getElementById(caseName).style.display = "block";
-    evt.currentTarget.className += " active";
+    // Show the selected tab content
+    const selectedContent = document.getElementById(caseName);
+    selectedContent.style.display = "block";
+
+    // Small delay for fade-in effect
+    setTimeout(() => {
+      selectedContent.style.opacity = 1;
+    }, 10);
+
+    // Add active state to clicked tab
+    evt.currentTarget.classList.add("active");
   }
 </script>
